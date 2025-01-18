@@ -1,14 +1,16 @@
 {
   "name": "ngx-logger",
-  "version": "0.0.0",
+  "version": "19.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "preprocess": "tailwindcss -c ./projects/demo/tailwind.config.js -o ./projects/ngx-resizeable/src/lib/tailwind.scss & ng build ngx-resizeable",
+    "publish": "cd dist/ngx-resizeable && npm publish --access public"
   },
-  "private": true,
+  "private": false,
   "dependencies": {
     "@angular/animations": "^19.0.0",
     "@angular/common": "^19.0.0",
@@ -18,6 +20,7 @@
     "@angular/platform-browser": "^19.0.0",
     "@angular/platform-browser-dynamic": "^19.0.0",
     "@angular/router": "^19.0.0",
+    "ngx-markdown": "^19.0.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.15.0"

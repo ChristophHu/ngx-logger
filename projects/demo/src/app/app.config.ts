@@ -9,9 +9,7 @@ import { provideLogger } from '../../../ngx-logger/src/public-api';
 export const appConfig: ApplicationConfig = {
   providers: [
     provideHttpClient(),
-    provideLogger({ log_level: '0', log_date: true, log_location: '', api_endpoints: '' }),
-
-    // provideLogger('0', true, '', ''),
+    provideLogger({ log_level: '0', log_date: true, log_location: '', publisher: [] }),
     provideZoneChangeDetection({ eventCoalescing: true }), 
     provideRouter(routes),
     provideMarkdown()

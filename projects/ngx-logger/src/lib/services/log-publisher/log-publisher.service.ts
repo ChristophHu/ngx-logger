@@ -55,8 +55,8 @@ export class LogPublisherService {
 
   getLoggers(): Observable<LogPublisherConfig[]> {
     return new Observable((observer) => {
-      const log_config = this._configService.get('log_config')
-      if (log_config) observer.next(log_config)
+      // const log_config = this._configService.get('log_config')
+      // if (log_config) observer.next(log_config)
     })
     // return this._httpClient.get(PUBLISHERS_FILE)
     // .pipe(

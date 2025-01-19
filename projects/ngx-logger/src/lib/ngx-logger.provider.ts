@@ -9,21 +9,21 @@ export enum Pubishername {
 
 export interface ILoggerPublisher {
     name: Pubishername
-    loaction: string
+    location: string
     isActive: boolean
 }
 export interface ILoggerSettings {
     log_level: string
     log_date: boolean
-    log_location: string
     publisher?: ILoggerPublisher[]
 }
 
 export const NGX_LOGGER_SETTINGS_TOKEN = new InjectionToken<ILoggerSettings>('ngx-logger-settings', {
-    factory: () => ({ log_level: '0', log_date: false, log_location: '', publisher: [] } as ILoggerSettings)
+    factory: () => ({ log_level: '0', log_date: false, publisher: [] } as ILoggerSettings)
 })
 
 export function provideLogger(log: ILoggerSettings): EnvironmentProviders {
+    console.log('provideLogger', log)
     return makeEnvironmentProviders([
         {
             provide: NGX_LOGGER_SETTINGS_TOKEN,

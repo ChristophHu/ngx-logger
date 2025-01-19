@@ -2,7 +2,7 @@ import { LogEntry } from "./log.entry"
 import { Observable, of } from "rxjs"
 
 import { LogPublisher } from "./log-publisher"
-import { LogLevel } from "../services/log.service"
+import { LogLevel } from "../services/ngx-logger/log.service"
 
 export class LogConsole extends LogPublisher {
     log(entry: LogEntry): Observable<boolean> {

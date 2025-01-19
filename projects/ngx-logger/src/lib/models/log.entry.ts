@@ -1,4 +1,4 @@
-import { LogLevel } from "../services/log.service"
+import { LogLevel } from "../services/ngx-logger/log.service"
 
 export class LogEntry {
     entryDate: Date = new Date()

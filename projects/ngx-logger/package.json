@@ -1,0 +1,36 @@
+{
+  "name": "@christophhu/ngx-logger",
+  "version": "19.1.0",
+  "description": "Angular logger",
+  "license": "MIT",
+  "author": {
+    "name": "Christoph Huschenhoefer",
+    "email": "christoph@nx.codes"
+  },
+  "keywords": [
+    "angular",
+    "logger",
+    "log",
+    "localstorage",
+    "webapi"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/christophhu/ngx-logger.git"
+  },
+  "bugs": {
+    "url": "https://github.com/christophhu/ngx-logger/issues"
+  },
+  "homepage": "https://github.com/christophhu/ngx-logger#readme",
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "peerDependencies": {
+    "@angular/common": "^19.1.0",
+    "@angular/core": "^19.1.0"
+  }
+}

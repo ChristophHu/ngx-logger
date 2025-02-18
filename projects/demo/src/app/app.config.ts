@@ -5,6 +5,7 @@ import { routes } from './app.routes';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { provideLogger } from '../../../ngx-logger/src/public-api';
 import { provideHttpClient } from '@angular/common/http';
+import { provideMarkdown } from 'ngx-markdown';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -12,6 +13,7 @@ export const appConfig: ApplicationConfig = {
     provideLogger({ default_logger: 'console', default_location: '', isActive: true }),
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes), 
-    provideAnimationsAsync()
+    provideAnimationsAsync(),
+    provideMarkdown()
   ]
 };

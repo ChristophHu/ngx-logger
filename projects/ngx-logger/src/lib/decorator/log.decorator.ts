@@ -18,9 +18,9 @@ export function LogDecorator(params?: LogParam): (target: any, propertyKey: stri
 
     return function (target: any, propertyKey: string, descriptor: PropertyDescriptor) {
         
-        const injector = target.constructor.injector as Injector
-        const logService = injector.get(LogService)
-        logService.loge(target, propertyKey, descriptor)
+        // const injector = target.constructor.injector as Injector
+        // const logService = injector.get(LogService)
+        // logService.loge(target, propertyKey, descriptor)
 
         const ORIGINALMETHODE = descriptor.value;
         let paramName = descriptor.value.toString().replace(/\s/g,'').match(/\((.*?)\)/)[1].split(','); 

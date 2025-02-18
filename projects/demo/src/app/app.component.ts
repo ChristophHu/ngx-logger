@@ -1,35 +1,47 @@
 import { Component } from '@angular/core';
-import { LogDecorator, LoggerToggleComponent, LogPublisherService, LogService } from '../../../ngx-logger/src/public-api';
-import { DebugModeComponent } from './shared/components/debug-mode/debug-mode.component';
+import { GithubService } from './core/services/github.service';
+import { Observable } from 'rxjs';
+import { IconsComponent } from './shared/components/icons/icons.component';
+import { RouterModule } from '@angular/router';
+import { AsyncPipe, CommonModule, JsonPipe } from '@angular/common';
 
 @Component({
   selector: 'app-root',
   imports: [
-    DebugModeComponent,
-    LoggerToggleComponent
+    AsyncPipe,
+    CommonModule,
+    IconsComponent,
+    // JsonPipe,
+    RouterModule
+  ],
+  providers: [
+    GithubService
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.sass'
 })
 export class AppComponent {
+  repos$: Observable<any>
+  this_repo$: Observable<any>
+  user$: Observable<any>
 
-  constructor(private readonly _logService: LogService, private _logPublisherService: LogPublisherService) {
-    this._logPublisherService.setLogger({ loggerName: 'console', loggerLocation: '', isActive: false })
-    this._logPublisherService.setLogger({ loggerName: 'localstorage', loggerLocation: 'log', isActive: false })
-    this._logPublisherService.setLogger({ loggerName: 'webapi', loggerLocation: 'http://localhost:3000/log', isActive: true })
+  show_settings: boolean = false
+  name: string = ''
+  version: string = '0.0.1'
+  
+  constructor(private githubService: GithubService) {
+    this.repos$ = this.githubService.repos$
+    this.this_repo$ = this.githubService.this_repo$
+    this.user$ = this.githubService.user$
 
-    LogService.debug(this.constructor.name, 'AppComponent constructor debug')
-    LogService.log(this.constructor.name, 'AppComponent constructor log')
-    LogService.info(this.constructor.name, 'AppComponent constructor info')
-    LogService.warn(this.constructor.name, 'AppComponent constructor warn')
-    LogService.error(this.constructor.name, 'AppComponent constructor error')
-    LogService.fatal(this.constructor.name, 'AppComponent constructor fatal')
+    this.name = this.githubService.getThisRepo()
+    this.version = this.githubService.getVersion()
   }
 
-  @LogDecorator({ logType: 'info', input: true, output: true, timestamp: true })
-  logToggle(param: any): boolean {
-    
-    this._logService.toggleLogActivate()
-    return true
+  toggleSettings() {
+    this.show_settings = !this.show_settings
+  }
+  toggleTheme() {
+    this.toggleSettings()
   }
 }

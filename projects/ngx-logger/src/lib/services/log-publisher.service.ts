@@ -24,7 +24,6 @@ export class LogPublisherService {
   logPublishers: LogPublisher[] = []
 
   buildPublishers() {
-    console.log('options', this.options)
     let logPub: LogPublisher
 
     this.config$.subscribe((response: LogPublisherConfig[]) => {

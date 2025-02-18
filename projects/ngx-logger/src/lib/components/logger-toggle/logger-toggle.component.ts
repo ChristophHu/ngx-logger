@@ -13,6 +13,6 @@ export class LoggerToggleComponent {
   debug: any
 
   toggle() {
-    console.log('toggle')
+    
   }
 }

@@ -7,7 +7,6 @@ export const NGX_LOGGER_INITIALIZER_PROVIDER: Provider = [
 ]
 
 export function LoggerInitializer(options: ILogOptions): Promise<void> {
-    console.warn('LoggerInitializer', options)
     return new Promise<void>((resolve) => {
       
     //   if (!settings.tag) {

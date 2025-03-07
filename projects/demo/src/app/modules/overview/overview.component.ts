@@ -1,8 +1,8 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { DebugModeComponent } from '../../shared/components/debug-mode/debug-mode.component';
-import { LogDecorator, LoggerToggleComponent, LogPublisherService, LogService } from 'ngx-logger';
 import { LogPipe } from '../../../../../ngx-logger/src/lib/pipes/log.pipe';
 import { CommonModule, JsonPipe } from '@angular/common';
+import { LogDecorator, LoggerToggleComponent, LogPublisherService, LogService } from '../../../../../ngx-logger/src/public-api';
 
 @Component({
   selector: 'app-overview',

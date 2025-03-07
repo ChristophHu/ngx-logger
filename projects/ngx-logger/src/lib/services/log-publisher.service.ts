@@ -39,6 +39,7 @@ export class LogPublisherService {
             logPub = new LogLocalStorage()
           break
           case 'webapi':
+            console.log('WebAPI')
             logPub = new LogWebAPI(this._http)
             logPub.location = pub.loggerLocation
             break

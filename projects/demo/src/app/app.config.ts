@@ -10,7 +10,7 @@ import { provideMarkdown } from 'ngx-markdown';
 export const appConfig: ApplicationConfig = {
   providers: [
     provideHttpClient(),
-    provideLogger({ default_logger: 'console', default_location: '', isActive: true }),
+    provideLogger({ default_logger: 'webapi', default_location: 'https://localhost:7246', isActive: true }),
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes), 
     provideAnimationsAsync(),

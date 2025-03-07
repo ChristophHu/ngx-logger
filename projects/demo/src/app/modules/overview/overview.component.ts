@@ -1,22 +1,23 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { DebugModeComponent } from '../../shared/components/debug-mode/debug-mode.component';
 import { LogDecorator, LoggerToggleComponent, LogPublisherService, LogService } from 'ngx-logger';
 import { LogPipe } from '../../../../../ngx-logger/src/lib/pipes/log.pipe';
+import { CommonModule, JsonPipe } from '@angular/common';
 
 @Component({
   selector: 'app-overview',
   imports: [
+    CommonModule,
     DebugModeComponent,
     LoggerToggleComponent,
-    LogPipe
+    LogPipe,
+    // JsonPipe
   ],
   templateUrl: './overview.component.html',
   styleUrl: './overview.component.sass'
 })
 export class OverviewComponent {
-
-  console: Console = console
-
+  
   /**
    * @description
    * This is a variable to demonstrate the LogPipe.
@@ -40,7 +41,7 @@ export class OverviewComponent {
   @LogDecorator({ logType: 'info', input: true, output: true, timestamp: true })
   logToggle(param: any): boolean {
     this._logService.toggleLogActivate()
-    this.console.log('console', this.console)
+    this._logService.loge('AppComponent', 'logToggle', 'LogService toggleLogActivate')
     return true
   }
 }

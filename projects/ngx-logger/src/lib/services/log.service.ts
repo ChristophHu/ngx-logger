@@ -53,7 +53,7 @@ export class LogService {
           publisher.log(entry).subscribe({
             next: (response: boolean) => {
               if (response) {
-                // console.log('Logged successfully')
+                console.log('Logged successfully')
               }
               if (!response) {
                 console.log('No publisher found.')

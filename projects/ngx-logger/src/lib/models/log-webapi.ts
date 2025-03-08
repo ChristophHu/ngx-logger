@@ -7,6 +7,7 @@ import { HttpClient } from "@angular/common/http"
 export class LogWebAPI extends LogPublisher {
 
     constructor(private _httpClient: HttpClient) {
+        console.log('LogWebAPI')
         super()
         this.location = "http://localhost:3000/log"
     }

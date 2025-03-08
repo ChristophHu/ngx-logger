@@ -44,4 +44,9 @@ export class OverviewComponent {
     this._logService.loge('AppComponent', 'logToggle', 'LogService toggleLogActivate')
     return true
   }
+
+  logThis() {
+    console.log('logThis Button click')
+    LogService.log('OverviewComponent', 'logThis', 'LogService logThis')
+  }
 }

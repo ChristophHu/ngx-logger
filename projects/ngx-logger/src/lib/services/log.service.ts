@@ -54,11 +54,8 @@ export class LogService {
         for (let publisher of LogService.logPublisher) {
           publisher.log(entry).subscribe({
             next: (response: boolean) => {
-              if (response) {
-                console.log('Logged successfully')
-              }
               if (!response) {
-                console.log('No publisher found.')
+                console.log('Check your publisher.')
               }
             },
             error: (error: any) => {

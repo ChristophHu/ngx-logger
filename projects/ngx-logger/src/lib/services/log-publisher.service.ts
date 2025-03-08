@@ -39,7 +39,6 @@ export class LogPublisherService {
             logPub = new LogLocalStorage()
           break
           case 'webapi':
-            console.log('WebAPI')
             logPub = new LogWebAPI(this._http)
             logPub.location = pub.loggerLocation
             break
@@ -52,8 +51,6 @@ export class LogPublisherService {
   }
 
   setLogger(config: LogPublisherConfig) {
-    let pub: LogPublisherConfig[] = [] // = this._config.getValue()
-    pub.push(config)
-    this._config.next(pub)
+    this._config.next([...this._config.value, config])
   }
 }

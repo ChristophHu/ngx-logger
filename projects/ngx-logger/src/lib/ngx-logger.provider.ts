@@ -7,9 +7,7 @@ export function provideLogger(options: ILogOptions): EnvironmentProviders {
     return makeEnvironmentProviders([
         {
             provide: NGX_LOGGER_OPTIONS_TOKEN,
-            useValue: {
-                options
-            }
+            useValue: options
         },
         NGX_LOGGER_INITIALIZER_PROVIDER
     ])

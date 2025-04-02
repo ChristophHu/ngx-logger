@@ -21,7 +21,6 @@ export class LogService {
   }
 
   static log(component: string, ...optionalParams: any[]) {
-    console.log(component, optionalParams)
     this.logger(LogLevel.Info, component, optionalParams)
   }
   static debug(component: string, ...optionalParams: any[]) {
@@ -49,7 +48,6 @@ export class LogService {
       entry.logWithDate = LogService.logWithDate
       entry.params = params
       
-      console.log(LogService.logPublisher)
       if (LogService.logPublisher) {
         for (let publisher of LogService.logPublisher) {
           publisher.log(entry).subscribe({

@@ -41,12 +41,10 @@ export class OverviewComponent {
   @LogDecorator({ logType: 'info', input: true, output: true, timestamp: true })
   logToggle(param: any): boolean {
     this._logService.toggleLogActivate()
-    this._logService.loge('AppComponent', 'logToggle', 'LogService toggleLogActivate')
     return true
   }
 
   logThis() {
-    console.log('logThis Button click')
     LogService.log('OverviewComponent', 'logThis', 'LogService logThis')
   }
 }
